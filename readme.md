@@ -16,7 +16,9 @@ var fs = require('fs'),
 In the usage example above, you can see that domtosource.find() takes three parameters.
 
 1) The HTML source code to search in
+
 2) The CSS selector to search for
+
 3) true if you want to calculate the line and column numbers
 
 ## Return values
