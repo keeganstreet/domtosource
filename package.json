@@ -1,0 +1,31 @@
+{
+	"name" : "domtosource",
+	"version" : "0.0.1",
+	"description" : "This module wraps around Cheerio and magically calculates the line and column number where DOM elements appear in the HTML source code.",
+	"keywords": ["html", "cheerio", "jquery"],
+	"homepage" : "https://github.com/keeganstreet/domtosource",
+	"author" : {
+		"name" : "Keegan Street",
+		"url" : "http://keegan.st"
+	},
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/keeganstreet/domtosource.git"
+	},
+	"bugs": {
+		"url": "https://github.com/keeganstreet/domtosource/issues"
+	},
+	"main": "app",
+	"engines": {
+		"node": "~0.8.x"
+	},
+	"scripts": {
+		"test": "node_modules/.bin/mocha test/test.js"
+	},
+	"dependencies" : {
+		"cheerio" : "0.10.x"
+	},
+	"devDependencies": {
+		"mocha": "1.3.x"
+	}
+}
