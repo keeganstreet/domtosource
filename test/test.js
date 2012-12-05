@@ -1,5 +1,5 @@
 var fs = require('fs'),
-	domtosource = require('../').domtosource,
+	domtosource = require('../'),
 	assert = require('assert');
 
 describe('domtosource', function() {

@@ -99,9 +99,7 @@
 
 	// Export for Node JS
 	if (typeof exports !== 'undefined') {
-		exports.domtosource = {
-			find: find
-		};
+		exports.find = find;
 	}
 
 }());
