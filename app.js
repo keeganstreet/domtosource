@@ -30,7 +30,7 @@
 	};
 
 	// Calculate the location of an individual element
-	processElement = function($, html, htmlLowerCase, $match, matchHtml) {
+	processElement = function($, html, $match, matchHtml) {
 		var matchHtmlLen = matchHtml.length,
 			charIndex,
 			nodeType,
@@ -52,14 +52,14 @@
 		// Method B
 		// This method is slower but will work in all cases
 
-		// Get the elements of this type
+		// Get the elements of this type (case sensitive)
 		nodeType = $match['0'].name;
 		$similarElements = $(nodeType);
 		for (n = 0, len = $similarElements.length; n < len; n += 1) {
 			if ($match['0'] == $similarElements.eq(n)['0']) {
-				// This is the nth element of type nodeType in the document
-				charIndex = nodeIndexToCharIndex(htmlLowerCase, nodeType, n);
-				return charIndexToLocation(htmlLowerCase, charIndex, 'methodB');
+				// This is the nth element of type nodeType in the document (case sensitive)
+				charIndex = nodeIndexToCharIndex(html, nodeType, n);
+				return charIndexToLocation(html, charIndex, 'methodB');
 			}
 		}
 
@@ -73,9 +73,8 @@
 			throw new Error('The html and selector parameters are required');
 		}
 
-		var $ = cheerio.load(html, {lowerCaseTags: true}),
+		var $ = cheerio.load(html, {lowerCaseTags: false}),
 			$matches = $(selector),
-			htmlLowerCase = html.toLowerCase(),
 			results = [],
 			i, len, $match, matchHtml, location;
 
@@ -87,7 +86,7 @@
 				html: matchHtml
 			};
 			if (calculateLinesAndColumns) {
-				location = processElement($, html, htmlLowerCase, $match, matchHtml);
+				location = processElement($, html, $match, matchHtml);
 				results[i].line = location[0];
 				results[i].column = location[1];
 				results[i].calculationMethod = location[2];

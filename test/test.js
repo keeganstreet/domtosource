@@ -115,9 +115,8 @@ describe('domtosource', function() {
 		it ('should return HTML for each result', function() {
 			assert.equal(results[0].html, '<li class="green">Green <span class="green">test</span></li>');
 			assert.equal(results[1].html, '<span class="green">test</span>');
-			// KNOWN ERROR: LI is converted to li
-			assert.equal(results[2].html, '<li class="green">Green</li>');
-			assert.equal(results[3].html, '<li class="green">Green</li>');
+			assert.equal(results[2].html, '<LI class="green">Green</LI>');
+			assert.equal(results[3].html, '<LI class="green">Green</LI>');
 		});
 	});
 });
