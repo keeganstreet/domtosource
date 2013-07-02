@@ -76,11 +76,16 @@ describe('domtosource', function() {
 	});
 
 	describe('Test a large document', function() {
-		var doc = fs.readFileSync(__dirname + '/example-html/theage.largepage', 'utf8'),
-			results = domtosource.find(doc, 'p', true);
+		var doc = fs.readFileSync(__dirname + '/example-html/css3-selectors.html', 'utf8'),
+			results = domtosource.find(doc, 'p', true),
+			results2 = domtosource.find(doc, 'p[class]', true);
 
-		it ('should return 473 results', function() {
-			assert.equal(473, results.length);
+		it ('should return 333 results', function() {
+			assert.equal(333, results.length);
+		});
+
+		it ('should return 16 results for paragraphs with a class attribute', function() {
+			assert.equal(16, results2.length);
 		});
 	});
 
