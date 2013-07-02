@@ -119,4 +119,13 @@ describe('domtosource', function() {
 			assert.equal(results[3].html, '<LI class="green">Green</LI>');
 		});
 	});
+
+	describe('Test a document with nested list items', function() {
+		var doc = fs.readFileSync(__dirname + '/example-html/nested-lists.html', 'utf-8'),
+			results = domtosource.find(doc, 'li li', true);
+
+		it('should process descendent selectors correctly', function() {
+			assert(results.length, 10)
+		});
+	});
 });
