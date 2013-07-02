@@ -1,6 +1,6 @@
 {
 	"name" : "domtosource",
-	"version" : "0.0.2",
+	"version" : "0.0.3",
 	"description" : "This module wraps around Cheerio and magically calculates the line and column numbers where DOM elements appear in the HTML source code.",
 	"keywords": ["html", "cheerio", "jquery"],
 	"homepage" : "https://github.com/keeganstreet/domtosource",
