@@ -58,4 +58,4 @@ DomToSource returns an array containing the elements that matched your selector,
 ]
 ```
 
-The calculation method return value indicates which method was used to calculate the line and column number. This is used for unit test purposes because some methods are faster than others, but only work in certain situations. It is not something you need to worry about as a user.
+The calculation method return value indicates which method was used to calculate the line and column number. This is returned for unit test purposes because some methods are faster than others, but only work in certain situations. It is not something you need to worry about as a user.

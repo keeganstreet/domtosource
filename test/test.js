@@ -120,12 +120,44 @@ describe('domtosource', function() {
 		});
 	});
 
+	// Test method A and capitalised element names
+	// Every element should be unique because they have different capitalisation
+	describe('Test a document with all unique capitalised element names', function() {
+		var doc = fs.readFileSync(__dirname + '/example-html/page1-caps-unique.html', 'utf8'),
+			results = domtosource.find(doc, '.green', true);
+
+		it('should be able to use method A (the fast method) for unique elements', function() {
+			assert.equal(results[0].calculationMethod, 'methodA');
+			assert.equal(results[1].calculationMethod, 'methodA');
+			assert.equal(results[2].calculationMethod, 'methodA');
+			assert.equal(results[3].calculationMethod, 'methodA');
+		});
+
+		it('should calculate line and column numbers correctly', function() {
+			assert.equal(results[0].line, 12);
+			assert.equal(results[1].line, 12);
+			assert.equal(results[2].line, 16);
+			assert.equal(results[3].line, 17);
+			assert.equal(results[0].column, 5);
+			assert.equal(results[1].column, 29);
+			assert.equal(results[2].column, 5);
+			assert.equal(results[3].column, 5);
+		});
+
+		it('should return HTML for each result', function() {
+			assert.equal(results[0].html, '<li class="green">Green <SPAN class="green">test</SPAN></li>');
+			assert.equal(results[1].html, '<SPAN class="green">test</SPAN>');
+			assert.equal(results[2].html, '<LI class="green">Green</LI>');
+			assert.equal(results[3].html, '<li class="green">Green</li>');
+		});
+	});
+
 	describe('Test a document with nested list items', function() {
 		var doc = fs.readFileSync(__dirname + '/example-html/nested-lists.html', 'utf-8'),
 			results = domtosource.find(doc, 'li li', true);
 
 		it('should process descendent selectors correctly', function() {
-			assert(results.length, 10)
+			assert(results.length, 10);
 		});
 	});
 });
