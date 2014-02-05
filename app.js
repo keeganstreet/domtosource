@@ -73,7 +73,7 @@
 	};
 
 	// The exported module
-	find = function(html, selector, calculateLinesAndColumns) {
+	find = function(html, selector) {
 
 		if (!html || !selector) {
 			throw new Error('The html and selector parameters are required');
@@ -113,12 +113,10 @@
 				el: $match,
 				html: $cheerio.html($matches.eq(i))
 			};
-			if (calculateLinesAndColumns) {
-				location = processElement(html, matchHtml, $cheerioLowerCaseLazy, i);
-				results[i].line = location[0];
-				results[i].column = location[1];
-				results[i].calculationMethod = location[2];
-			}
+			location = processElement(html, matchHtml, $cheerioLowerCaseLazy, i);
+			results[i].line = location[0];
+			results[i].column = location[1];
+			results[i].calculationMethod = location[2];
 		}
 
 		return results;

@@ -8,14 +8,14 @@ describe('domtosource', function() {
 
 		it('should throw an error if the html is empty', function() {
 			assert.throws(function() {
-				var results = domtosource.find('', '.green', true);
+				var results = domtosource.find('', '.green');
 			});
 		});
 
 		it('should throw an error if the selector is empty', function() {
 			assert.throws(function() {
 				var doc = fs.readFileSync(__dirname + '/example-html/page1.html', 'utf8'),
-				results = domtosource.find(doc, '', true);
+				results = domtosource.find(doc, '');
 			});
 		});
 	});
@@ -23,7 +23,7 @@ describe('domtosource', function() {
 	describe('Test .green', function() {
 
 		var doc = fs.readFileSync(__dirname + '/example-html/page1.html', 'utf8'),
-			results = domtosource.find(doc, '.green', true);
+			results = domtosource.find(doc, '.green');
 
 		it('should return 4 results', function() {
 			assert.equal(4, results.length);
@@ -50,7 +50,7 @@ describe('domtosource', function() {
 
 	describe('Test a document with no line breaks', function() {
 		var doc = fs.readFileSync(__dirname + '/example-html/page1-oneline.html', 'utf8'),
-			results = domtosource.find(doc, '.green', true);
+			results = domtosource.find(doc, '.green');
 
 		it('should return 4 results', function() {
 			assert.equal(4, results.length);
@@ -77,8 +77,8 @@ describe('domtosource', function() {
 
 	describe('Test a large document', function() {
 		var doc = fs.readFileSync(__dirname + '/example-html/css3-selectors.html', 'utf8'),
-			results = domtosource.find(doc, 'p', true),
-			results2 = domtosource.find(doc, 'p[class]', true);
+			results = domtosource.find(doc, 'p'),
+			results2 = domtosource.find(doc, 'p[class]');
 
 		it('should return 333 results', function() {
 			assert.equal(results.length, 333);
@@ -92,7 +92,7 @@ describe('domtosource', function() {
 	// Test method B and capitalised element names
 	describe('Test a document with some capitalised element names', function() {
 		var doc = fs.readFileSync(__dirname + '/example-html/page1-caps.html', 'utf8'),
-			results = domtosource.find(doc, '.green', true);
+			results = domtosource.find(doc, '.green');
 
 		it('should be able to use method A (the fast method) for unique elements', function() {
 			assert.equal(results[0].calculationMethod, 'methodA');
@@ -124,7 +124,7 @@ describe('domtosource', function() {
 	// Every element should be unique because they have different capitalisation
 	describe('Test a document with all unique capitalised element names', function() {
 		var doc = fs.readFileSync(__dirname + '/example-html/page1-caps-unique.html', 'utf8'),
-			results = domtosource.find(doc, '.green', true);
+			results = domtosource.find(doc, '.green');
 
 		it('should be able to use method A (the fast method) for unique elements', function() {
 			assert.equal(results[0].calculationMethod, 'methodA');
@@ -154,7 +154,7 @@ describe('domtosource', function() {
 
 	describe('Test a document with nested list items', function() {
 		var doc = fs.readFileSync(__dirname + '/example-html/nested-lists.html', 'utf-8'),
-			results = domtosource.find(doc, 'li li', true);
+			results = domtosource.find(doc, 'li li');
 
 		it('should process descendent selectors correctly', function() {
 			assert(results.length, 10);
