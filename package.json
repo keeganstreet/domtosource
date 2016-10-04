@@ -20,7 +20,7 @@
 		"node": ">= 0.8.x"
 	},
 	"scripts": {
-		"test": "node_modules/.bin/mocha test/test.js"
+		"test": "mocha test/test.js"
 	},
 	"dependencies" : {
 		"cheerio" : "0.22.x"
