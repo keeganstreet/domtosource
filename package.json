@@ -1,31 +1,35 @@
 {
-	"name" : "domtosource",
-	"version" : "0.1.0",
-	"description" : "This module wraps around Cheerio and magically calculates the line and column numbers where DOM elements appear in the HTML source code.",
-	"keywords": ["html", "cheerio", "jquery"],
-	"homepage" : "https://github.com/keeganstreet/domtosource",
-	"author" : {
-		"name" : "Keegan Street",
-		"url" : "http://keegan.st"
-	},
-	"repository" : {
-		"type" : "git",
-		"url" : "https://github.com/keeganstreet/domtosource.git"
-	},
-	"bugs": {
-		"url": "https://github.com/keeganstreet/domtosource/issues"
-	},
-	"main": "app",
-	"engines": {
-		"node": ">= 0.8.x"
-	},
-	"scripts": {
-		"test": "mocha test/test.js"
-	},
-	"dependencies" : {
-		"cheerio" : "0.22.x"
-	},
-	"devDependencies": {
-		"mocha": "3.1.x"
-	}
+  "name": "domtosource",
+  "version": "0.1.1",
+  "description": "This module wraps around Cheerio and magically calculates the line and column numbers where DOM elements appear in the HTML source code.",
+  "keywords": [
+    "html",
+    "cheerio",
+    "jquery"
+  ],
+  "homepage": "https://github.com/keeganstreet/domtosource",
+  "author": {
+    "name": "Keegan Street",
+    "url": "http://keegan.st"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keeganstreet/domtosource.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keeganstreet/domtosource/issues"
+  },
+  "main": "app",
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "dependencies": {
+    "cheerio": "0.22.x"
+  },
+  "devDependencies": {
+    "mocha": "3.1.x"
+  }
 }
